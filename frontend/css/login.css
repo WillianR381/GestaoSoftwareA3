@@ -1,0 +1,93 @@
+        :root{
+            --primary-color: #0062ff;
+            --background-color: #fafafa;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            width: 650px;
+            margin: auto;
+            margin-top: 200px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        form {
+            padding: 24px 50px;
+            background-color: white;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .area {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            font-size: 130%;
+            text-align: center;
+            border-spacing: 0cm;
+            border-bottom: 1px solid black;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-weight: 600;
+        }
+
+        label{
+            font-weight: 600;
+        }
+
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 12px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 105%;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .btn-back{
+            cursor: pointer;
+            display: flex;
+            font-size: 18px;
+            align-items: center;
+
+            -webkit-appearance: none;
+            border-radius: 0;
+            text-align: inherit;
+            background: none;
+            box-shadow: none;
+            padding: 0;
+            cursor: pointer;
+            border: none;
+            color: inherit;
+            font: inherit;
+            margin-top: 18px;
+        }
+
+        .btn-back svg{
+            margin-right: 5px;
+        }
+
+       
+
+       

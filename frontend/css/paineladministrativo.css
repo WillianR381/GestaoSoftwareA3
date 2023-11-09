@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+main{
+    margin: 0 auto;
+    width: 650px;
+}
+
+.title{
+    font-size: 1.8rem;
+    text-align: center;
+    margin-top: 150px;
+}
+
+.section {
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.section h2 {
+    background-color: #0062ff;
+    color: #fff;
+    font-weight: 700;
+    padding: 10px 12px;
+}
+
+.section a {
+    text-decoration: none;
+    color: black;
+   
+}
+
+.section-item {
+    padding: 10px 12px;
+   border-bottom: black 1px solid;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.wrap-buttons{
+    display: flex;
+}
+
+.btn{
+    padding: 5px;
+    color: #fff;
+
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.btn + .btn{
+    margin-left: 5px;
+    
+}
+.btn-add {
+    background-color: #198754;
+}
+
+.btn-edit{
+    background-color: #eeb500;
+}

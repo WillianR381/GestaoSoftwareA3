@@ -1,12 +1,12 @@
 
 function encrypt(password){
-    const buff = new Buffer(password);
+    const buff = Buffer.from(password);
     return buff.toString('base64');
 }
 
 
 function decrypt(password){
-    let buff = new Buffer(password, 'base64');
+    let buff = Buffer.from(password, 'base64');
     return buff.toString('ascii');
 } 
 

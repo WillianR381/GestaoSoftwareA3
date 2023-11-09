@@ -1,12 +1,8 @@
 const userService = require('../services/userService');
 const { encrypt } = require('../utils/cryptography');
+const { validatePermissao } = require('../utils/permissao');
 
 const login = async (req, res) => {
-    const response = {
-        token: null,
-        message: null,
-        content: null
-    }
     try{
         const body = req.body;
         
@@ -16,17 +12,16 @@ const login = async (req, res) => {
 
         const data = {
             "email" : body?.email,
-            "senha": body?.senha,
-        }
+            "senha": encrypt(body?.senha) ?? '' ,
+        };
         
-        const user = await userService.login(data)
+        const user = await userService.login(data);
 
         if(!user) {
             throw new Error("Usuario não consegui logar");
         }
-
-        response['message'] = "Usuario logado com sucesso !";
-        response['content'] = {
+        
+        response = {
             id: user?.id,
             nome: user?.nome,
             email: user?.email,
@@ -35,7 +30,9 @@ const login = async (req, res) => {
 
         return res.status(200).json(response);
     }catch (error) {
-        response['message'] = 'Usuário e/ou senha inválido(s) !';
+        response = {
+            messagem: 'Usuário e/ou senha inválido(s) !'
+        }
         return res.status(401).json(response);
     }
 
@@ -43,11 +40,10 @@ const login = async (req, res) => {
 
 const createUser = async (req, res) => {
     const response = {
-        message: null,
+        messagem: null,
         created: null,
     }
-    const permissao = ['admin', 'criador-de-conteudo'];
-
+    
     try{
         const body = req.body;
 
@@ -55,7 +51,7 @@ const createUser = async (req, res) => {
             throw new Error("Campo vazio");
         }
 
-        if(! permissao.includes(body?.permissao)){
+        if(! validatePermissao(body?.permissao)){
             throw new Error("Permissão inválida");
         }
 
@@ -75,10 +71,10 @@ const createUser = async (req, res) => {
         }
 
         response['created'] = isCreated;
-        response['message'] = "Usuário criado com sucesso !";
+        response['messagem'] = "Usuário criado com sucesso !";
         return res.status(201).json(response);
     }catch (error) {
-        response['message'] = 'Usuário já existe';
+        response['messagem'] = 'Usuário já existe';
         response['created']= false;
         return res.status(401).json(response);
     }

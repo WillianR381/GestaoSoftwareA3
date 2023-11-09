@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
-    "test": "jest --runInBand --no-cache"
+    "start": "nodemon src/server.js",
+    "test": "jest  --no-cache --silent"
   },
   "keywords": [],
   "author": "",

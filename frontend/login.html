@@ -32,32 +32,44 @@
         </div>
 
 
-            <form action="" method="post" >
-                <div>
-                    <label for="email">Email :</label>
-                    <input type="text" placeholder="Digite seu email" name="email" id="email">
+        <form action="" method="post">
+            <div>
+                <label for="email">Email :</label>
+                <input type="text" placeholder="Digite seu email" name="email" id="email">
+            </div>
+
+            <div>
+                <label for="senha">Senha :</label>
+                <input type="password" placeholder="Digite sua senha" name="senha" id="senha">
+            </div>
+
+            <div class="fake-recaptcha">
+                <div class="recaptcha-image"></div>
+                <div class="checkbox-items">
+
+                    <div class="checkbox-label">
+                        <input type="checkbox" id="confirmation" name="confirmation" required>
+                        <label for="confirmation">Eu não sou um robô</label>
+                    </div>
+                        <img src="images/recaptchaLogo.png" alt="">
                 </div>
+            </div>
 
-                <div>
-                    <label for="senha">Senha :</label>
-                    <input type="password" placeholder="Digite sua senha" name="senha" id="senha">
-                </div>
+            <button type="submit" class="btn">Acessar</button>
 
-                <button type="submit" class="btn">Acessar</button>
+            <a type="submit" class="btn-back" href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z">
+                    </path>
+                </svg>
+                <span>
+                    Voltar
+                </span>
 
-                <a type="submit" class="btn-back" href="index.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-arrow-return-left" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z">
-                        </path>
-                    </svg>
-                    <span>
-                        Voltar
-                    </span>
-
-                </a>
-            </form>
+            </a>
+        </form>
 
         </div>
     </main>

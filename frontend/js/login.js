@@ -1,27 +1,28 @@
 
 const form = document.querySelector("form");
 const messagemField = document.querySelector(".messagem");
+const emailInput = document.querySelector('input[name="email"]');
+const senhaInput = document.querySelector('input[name="senha"]');
 
 
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const email = document.querySelector('input[name="email"]').value;
-    const senha = document.querySelector('input[name="senha"]').value;
-
+    const email = emailInput.value
+    const senha = senhaInput.value
 
     if(! hasEmptyField(email, senha)){
-        displayMessagem("Campo de email e senha são obrigatórios");
+        displayMessage("Campo de email e senha são obrigatórios");
         return;
     }
     
     if(! isValidLengthPassword(senha)){
-        displayMessagem("Campo de senha inválido");
+        displayMessage("Campo de senha inválido");
         return;
     }
 
     if(! isValidEmailFormat(email)){
-        displayMessagem( "Campo de email inválido");
+        displayMessage( "Campo de email inválido");
         return ;
     }
 
@@ -42,8 +43,18 @@ form.addEventListener("submit", async (event) => {
     };
 
     const response = await fetch("http://localhost:5000/user/login", requestOptions)
-    .then(response => response.ok)
-    .then(result => window.location = 'painel-administrativo.html')
+    .then(async response => [response.ok, await response.json()])
+    .then( response => {
+        const [isLogged, data] = response
+
+        if(isLogged){
+            window.location = 'painel-administrativo.html'
+            return
+        }
+
+        const {messagem} = data 
+        displayMessage(messagem);
+    })
     .catch(error => console.log('error', error));
 })
 
@@ -55,7 +66,7 @@ function isValidLengthPassword(password){
 
 
 function isValidEmailFormat(email){
-    const regex = /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;
+    const regex = /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)?(\.[\w-]+)+$/;
     return regex.test(email);
 }
 
@@ -63,7 +74,10 @@ function hasEmptyField(email, password){
     return email && password
 }
 
-function displayMessagem(messagem){
+function displayMessage(messagem){
     messagemField.textContent = messagem;
     messagemField.style.display = 'block';
+
+    emailInput.value = ''
+    senhaInput.value = ''
 }

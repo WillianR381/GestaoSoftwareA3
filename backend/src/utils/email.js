@@ -1,7 +1,7 @@
 
 
 function validateEmailFormat(email){
-    const regex = /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;
+    const regex = /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)?(\.[\w-]+)+$/;
     return regex.test(email);
 }
 

@@ -18,7 +18,7 @@ const login = async (req, res) => {
         const user = await userService.login(data);
 
         if(!user) {
-            throw new Error("Usuario não consegui logar");
+            throw new Error("Usuario não conseguiu logar");
         }
         
         response = {

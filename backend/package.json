@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/server.js",
-    "test": "jest  --no-cache --silent",
+    "test": "jest  --runInBand --no-cache --silent",
     "coverage": "jest --coverage --silent --detectOpenHandles --forceExit"
   },
   "keywords": [],
@@ -16,6 +16,7 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "nodemon": "^2.0.22",
+    "selenium-webdriver": "^4.15.0",
     "slugify": "^1.6.6",
     "sqlite3": "^5.1.6"
   },

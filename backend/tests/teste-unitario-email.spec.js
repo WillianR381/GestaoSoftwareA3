@@ -17,7 +17,7 @@ describe('Testes Unitários - validateEmailFormat', () => {
         expect(isInvalidPattern).toBe(false);
     })
 
-    it('Verificar se a funcao validateEmailFormat retorna false ao passar um email invalido', () => { 
+    it('Verificar se a funcao validateEmailFormat retorna true ao passar um email válido de administrador', () => { 
         const email = "admin@admin.com";
 
         const isValidPattern = validateEmailFormat(email);
